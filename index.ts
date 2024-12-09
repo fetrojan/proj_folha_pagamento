@@ -13,18 +13,9 @@ function adicionarFuncionario(id, nome, cargo, taxaHoraria) {
     listaFuncionarios.push(funcionario);
 }
 
-function registrarHoras(idFuncionario, numHoras) {
-    listaFuncionarios.map((funcionario) => {
-        if (funcionario.id === idFuncionario) {
-            funcionario.horasTrabalhadas.push(Number(numHoras)); // Certifique-se de converter para número
-        }
-    });
-}
 
-function calcularSalarioMensal(funcionario) {
-    let salario = funcionario.horasTrabalhadas.reduce((acc, curr) => acc + curr, 0) * funcionario.taxaHoraria;
-    return salario;
-}
+
+
 
 function calcularInss(funcionario) {
     let salario = calcularSalarioMensal(funcionario);
