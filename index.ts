@@ -1,21 +1,14 @@
-const prompt = require("prompt-sync")();
+import Funcionario from "./classes/Funcionario";
+import PromptSync from 'prompt-sync';
 
-const listaFuncionarios = [];
+const prompt = PromptSync();
 
-function adicionarFuncionario(id, nome, cargo, taxaHoraria) {
-    let funcionario = {
-        id: id,
-        nome,
-        cargo: cargo,
-        taxaHoraria: taxaHoraria,
-        horasTrabalhadas: []
-    };
+const listaFuncionarios: Funcionario[] = [];
+
+function adicionarFuncionario (nome: string, cargo:string, taxaHoraria:number) : void {
+    let funcionario = new Funcionario(nome, cargo, taxaHoraria)
     listaFuncionarios.push(funcionario);
 }
-
-
-
-
 
 function calcularInss(funcionario) {
     let salario = calcularSalarioMensal(funcionario);
