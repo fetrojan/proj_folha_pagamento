@@ -42,7 +42,7 @@ function gerarRelatorioPagamento() {
     listaFuncionarios.map((funcionario) => {
         console.log('Nome: ' + funcionario.nome);
         console.log('Cargo: ' + funcionario.cargo);
-        console.log('Horas Trabalhadas: ' + calcularHorasTrabalhadas(funcionario));
+        console.log('Horas Trabalhadas: ' + funcionario.calcularTotalHoras());
         console.log('Salário Bruto: R$ ' + calcularSalarioMensal(funcionario));
         console.log('Valor do INSS: R$ ' + calcularInss(funcionario));
         console.log('Salário Líquido: R$ ' + (calcularSalarioMensal(funcionario) - calcularInss(funcionario)));
@@ -65,11 +65,10 @@ function gerenciarFolhaPagamento() {
         let opcao = Number(prompt('Digite a opção desejada: '));
         switch (opcao) {
             case 1:
-                let id = prompt('Digite o id do funcionário: ');
                 let nome = prompt('Digite o nome do funcionário: ');
                 let cargo = prompt('Digite o cargo do funcionário: ');
                 let taxaHoraria = Number(prompt('Digite a taxa horária do funcionário: '));
-                adicionarFuncionario(id, nome, cargo, taxaHoraria)
+                adicionarFuncionario (nome, cargo, taxaHoraria)
                 break;
             case 2:
                 let idFuncionario = prompt('Digite o id do funcionário: ');

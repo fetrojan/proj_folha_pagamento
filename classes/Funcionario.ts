@@ -15,13 +15,22 @@ class Funcionario {
         this.horasTrabalhadas = [];
     }
 
-    registrarHoras(numHoras:number) {
+    registrarHoras(numHoras:number):void {
         this.horasTrabalhadas.push(Number(numHoras));
     }
 
-    calcularSalarioMensal() {
-        let salario = this.horasTrabalhadas.reduce((acc, curr) => acc + curr, 0) * this.taxaHoraria;
-        return salario;
+    calcularTotalHoras():number {
+        let totalHoras = 0
+        this.horasTrabalhadas.map(hora => {
+            totalHoras += hora
+        })
+
+        return totalHoras
+    }
+
+
+    calcularSalarioMensal(): number {
+        return this.calcularTotalHoras() * this.taxaHoraria;
     }
 }
 
