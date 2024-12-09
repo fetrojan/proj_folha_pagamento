@@ -15,11 +15,8 @@ class Funcionario {
         this.horasTrabalhadas = [];
     }
 
-    registrarHoras(idFuncionario: string, numHoras:number) {
-        if (this.id === idFuncionario) {
-            this.horasTrabalhadas.push(Number(numHoras));
-            return // Certifique-se de converter para número
-        }
+    registrarHoras(numHoras:number) {
+        this.horasTrabalhadas.push(Number(numHoras));
     }
 
     calcularSalarioMensal() {
